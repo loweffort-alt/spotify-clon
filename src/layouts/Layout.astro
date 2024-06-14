@@ -17,16 +17,15 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="text-white">
+  <body>
     <div id="app" class="relative h-screen p-2 gap-2 flex items-stretch">
       <aside class="[grid-area:aside] flex-col flex overflow-auto">
         <AsideMenu />
       </aside>
-      <main class="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto">
-        MAIN
-      </main>
-      <footer class="[grid-area:player] min-h-[100px]"></footer>
-      <slot />
+      <div class="[grid-area:main]">
+        <slot />
+      </div>
+      <footer class="[grid-area:player] min-h-[100px]">Footer</footer>
     </div>
   </body>
 </html>
@@ -42,8 +41,24 @@ const { title } = Astro.props;
 </style>
 <style is:global>
   html {
-    font-family: system-ui, sans-serif;
-    background: #000000;
-    background-size: 224px;
+    font-family: "CircularStd", system-ui, sans-serif;
+    background: #121212;
+    color: white;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/fonts/CircularStd-Black.woff2") format("woff2");
   }
 </style>
